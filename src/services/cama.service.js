@@ -1,11 +1,11 @@
 import { api } from '../helpers';
 
-function getBySala() {
-    return api.get(`/CamaRecup`);
+function getBySala(sala,disponible) {
+    return api.get(`/CamaRecup?sala=${sala}&disponble=${disponible}`);
 }
 
-function getDisponibles(sala,disponible) {
-    return api.get(`/CamaRecup/Disponibles?sala=${sala}&disponble=${disponible}`);
+function getDisponibles() {
+    return api.get(`/CamaRecup/Disponibles`);
 }
 
 function crear(data) {

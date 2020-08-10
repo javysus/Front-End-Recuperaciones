@@ -69,6 +69,16 @@ export default function() {
       title: 'Liberar Pabellon',
       htmlBefore: '<i class="material-icons">note_add</i>',
       to: '/liberar-form'
+    },
+    {
+      title: 'Salas de Recuperación',
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: '/salas-recuperacion'
+    },
+    {
+      title: 'Camas de Recuperación Disponibles',
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: '/camas-disponibles'
     }
   ];
 }

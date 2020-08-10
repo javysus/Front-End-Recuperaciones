@@ -20,6 +20,8 @@ import LiberarForm from './views/LiberarForm';
 import PabellonDispList from './views/PabellonDispList';
 import PabellonOcpList from './views/PabellonOcpList';
 import PersonalAsgList from './views/PersonalAsgList';
+import SalasList from './views/SalasList';
+import CamasList from "./views/CamasList";
 
 export default [
   {
@@ -102,5 +104,15 @@ export default [
     path: "/personalasg-list",
     layout: DefaultLayout,
     component: PersonalAsgList
+  },
+  {
+    path: "/salas-recuperacion",
+    layout: DefaultLayout,
+    component: SalasList
+  },
+  {
+    path: "/camas-disponibles",
+    layout: DefaultLayout,
+    component: CamasList
   },
 ];
