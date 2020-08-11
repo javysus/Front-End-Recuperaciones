@@ -34,17 +34,17 @@ class CamasList extends Component {
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Camas de Recuperación Disponibles" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Camas de Recuperación Disponibles" subtitle="" className="text-sm-left" />
         </Row>
 
         <Row>
           {camas.map((cama, index) => {
             return (
-              <Col lg="2" key={cama.id}>
+              <Col lg="3" key={cama.id}>
                 <Card small className="card-post mb-4">
                   <CardBody>
-                    <p className="card-text text-muted">Id Cama: {cama.id}</p>
-                    <p className="card-text text-muted">Id Sala: {cama.idSala}</p>
+                    <p className="card-text text-muted text-center">Cama: {cama.id}</p>
+                    <p className="card-text text-muted text-center">Sala: {cama.idSala}</p>
                   </CardBody>
                 </Card>
               </Col>

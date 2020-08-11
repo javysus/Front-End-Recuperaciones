@@ -17,7 +17,7 @@ class CamaAsigForm extends Component {
   }
 
   handleAsignacionSubmit(data) {
-    camaService.update({'id':data.id,'paciente':data.paciente})
+    camaService.update({'id':data.id,'idPaciente':data.paciente, 'disponible': false})
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
   }
@@ -28,7 +28,7 @@ class CamaAsigForm extends Component {
       <Container fluid className="main-content-container px-4 pb-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Asignar Cama de Recuperación" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Asignar Cama de Recuperación" subtitle="" className="text-sm-left" />
         </Row>
 
         <CamaAsig

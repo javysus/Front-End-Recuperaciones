@@ -30,7 +30,7 @@ class EquipamientoForm extends Component {
       <Container fluid className="main-content-container px-4 pb-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Agregar" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Agregar" subtitle="" className="text-sm-left" />
         </Row>
 
         <Equipamiento

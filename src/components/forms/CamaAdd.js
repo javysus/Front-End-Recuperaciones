@@ -8,7 +8,6 @@ import {
   Form,
   FormGroup,
   FormInput,
-  FormSelect,
   Button,
 } from "shards-react";
 

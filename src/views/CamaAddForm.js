@@ -6,7 +6,7 @@ import {
   Card,
   CardBody,
 } from "shards-react";
-import camaService from '../services/equipamiento.service';
+import camaService from '../services/cama.service';
 import CamaAdd from '../components/forms/CamaAdd'
 import PageTitle from "../components/common/PageTitle";
 
@@ -15,10 +15,10 @@ class CamaAddForm extends Component {
   constructor(props) {
     super(props);
 
-    this.handleCamaSubmit = this.handleCamaSubmit.bind(this);
+    this.handleCamaAddSubmit = this.handleCamaAddSubmit.bind(this);
   }
 
-  handleCamaSubmit(data) {
+  handleCamaAddSubmit(data) {
     camaService.create(data)
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
@@ -30,11 +30,11 @@ class CamaAddForm extends Component {
       <Container fluid className="main-content-container px-4 pb-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Agregar" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Agregar Cama de Recuperación" subtitle="" className="text-sm-left" />
         </Row>
 
         <CamaAdd
-          onSubmit={this.handleCamaSubmit}
+          onSubmit={this.handleCamaAddSubmit}
         ></CamaAdd>
       </Container>
     );

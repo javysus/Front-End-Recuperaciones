@@ -48,7 +48,7 @@ const CamaAsig = ({
               <Button
                 theme="primary"
                 className="mb-2 mr-1"
-                onClick={(event) => onSubmit({'id': id})}
+                onClick={(event) => onSubmit({'id': id,'idPaciente': paciente})}
                 // onClick={onSubmit}
                 >
                   Agregar
