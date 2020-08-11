@@ -27,6 +27,7 @@ import EquipamientoForm from "./views/EquipamientoForm"
 import CamaAddForm from "./views/CamaAddForm"
 import CamaAsigForm from "./views/CamaAsigForm"
 import EquipamientoForm2 from "./views/EquipamientoForm2"
+import EquipamientoList from "./views/EquipamientoList"
 
 export default [
   {
@@ -144,5 +145,10 @@ export default [
     path: "/prueba",
     layout: DefaultLayout,
     component: EquipamientoForm2
+  },
+  {
+    path: "/equipamiento",
+    layout: DefaultLayout,
+    component: EquipamientoList
   }
 ];

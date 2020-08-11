@@ -86,6 +86,11 @@ export default function() {
       to: '/camas-nodisponibles'
     },
     {
+      title: 'Equipamiento',
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: '/equipamiento'
+    },
+    {
       title: 'Asignar Cama',
       htmlBefore: '<i class="material-icons">note_add</i>',
       to: '/asignar-cama'

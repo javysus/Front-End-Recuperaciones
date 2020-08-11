@@ -5,6 +5,7 @@ import {
   Col,
   Card,
   CardBody,
+  Button
 } from "shards-react";
 import salaService from '../services/sala.service';
 import equipamientoService from '../services/equipamiento.service';
@@ -17,7 +18,8 @@ class SalasList extends Component {
     super(props);
     this.state = {
       salas: [],
-    }
+    };
+    this.obtenerEquipamiento = this.obtenerEquipamiento.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,11 @@ class SalasList extends Component {
     });
   }
 
+  obtenerEquipamiento(data) {
+    /*equipamientoService.getBySala(data.id).then((equipos) => {equipos.data.map(equipo => 
+      <div key={equipo.id}> {equipo.nombre} </div>)})*/
+      equipamientoService.getBySala(data.id).then((equipos) => console.log(equipos.data))
+  }
 
 
   render() {
@@ -45,7 +52,7 @@ class SalasList extends Component {
             /*const { equipos } = fetch('https://recuperaciones.herokuapp.com/Equipamiento/Sala?idsala='+ sala.id)
             .then(response => response.json()).then(equipa => this.setState({equipa}));*/
 
-            const { equipos } = fetch('https://recuperaciones.herokuapp.com/Equipamiento/Sala?idsala='+ sala.id)
+            /*const { equipos } = fetch('https://recuperaciones.herokuapp.com/Equipamiento/Sala?idsala='+ sala.id)
             .then(response => response.json())/*.then(equipa => {equipa.map(equi =>
               <div key={equipa.id}> {equipa.nombre} </div>)});
 
@@ -60,6 +67,7 @@ class SalasList extends Component {
                     <p className="card-text text-muted">Sala: {sala.id}</p>
                     <p className="card-text text-muted">Camas: {sala.camas}</p>
                     <p className="card-text text-muted">Camas disponibles: {sala.disponibles}</p>
+                
                   </CardBody>
                 </Card>
               </Col>

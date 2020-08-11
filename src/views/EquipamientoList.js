@@ -5,24 +5,30 @@ import {
   Col,
   Card,
   CardBody,
+  Button
 } from "shards-react";
-import salaService from '../services/sala.service';
+import equipamientoService from '../services/equipamiento.service';
 
 import PageTitle from "../components/common/PageTitle";
 
-class SalasList extends Component {
+class EquipamientoList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      salas: [],
-    }
+      equipos: [],
+    };
+    this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this);
+  }
+
+  handleDeleteSubmit(data) {
+    equipamientoService.borrarEquip(data.id).then((response) => console.log(response))
   }
 
   componentDidMount() {
-    salaService.getAll().then((response) => {
+    equipamientoService.getAll().then((response) => {
       this.setState({
-        salas: response.status === 200 ? response.data : [],
+        equipos: response.status === 200 ? response.data : [],
       })
     });
   }
@@ -30,7 +36,7 @@ class SalasList extends Component {
 
 
   render() {
-    const { salas } = this.state;
+    const { equipos } = this.state;
 
     return (
       <Container fluid className="main-content-container px-4">
@@ -40,14 +46,17 @@ class SalasList extends Component {
         </Row>
 
         <Row>
-          {salas.map((sala, index) => {
+          {equipos.map((equip, index) => {
             return (
-              <Col lg="5" key={sala.id}>
+              <Col lg="4" key={equip.id}>
                 <Card small className="card-post mb-4">
                   <CardBody>
-                    <p className="card-text text-muted">Sala: {sala.id}</p>
-                    <p className="card-text text-muted">Camas: {sala.camas}</p>
-                    <p className="card-text text-muted">Camas disponibles: {sala.disponibles}</p>
+                    <p className="card-text text-center text-muted">Identificador: {equip.id}</p>
+                    <p className="card-text text-center text-muted">{equip.nombre}</p>
+                    <p className="card-text text-center text-muted">Sala: {equip.idSala}</p>
+
+                    <Button variant="success"
+                    onClick={(event) => this.handleDeleteSubmit({'id': equip.id})}>Eliminar</Button>{' '}
                   </CardBody>
                 </Card>
               </Col>
@@ -60,4 +69,4 @@ class SalasList extends Component {
 
 }
 
-export default SalasList;
+export default EquipamientoList;
