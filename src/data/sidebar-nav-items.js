@@ -81,6 +81,11 @@ export default function() {
       to: '/camas-disponibles'
     },
     {
+      title: 'Asignar Cama',
+      htmlBefore: '<i class="material-icons">note_add</i>',
+      to: '/asignar-cama'
+    },
+    {
       title: 'Agregar Cama de Recuperación',
       htmlBefore: '<i class="material-icons">note_add</i>',
       to: '/agregar-cama'
