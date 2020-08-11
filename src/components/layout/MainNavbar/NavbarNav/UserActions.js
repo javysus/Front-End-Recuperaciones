@@ -30,7 +30,7 @@ export default class UserActions extends React.Component {
   render() {
     return (
       <NavItem tag={Dropdown} caret toggle={this.toggleUserActions}>
-        <DropdownToggle caret tag={NavLink} className="text-nowrap px-3">
+        {/*<DropdownToggle caret tag={NavLink} className="text-nowrap px-3">
           <img
             className="user-avatar rounded-circle mr-2"
             src={require("./../../../../images/avatars/Dr.Mario.png")}
@@ -38,7 +38,7 @@ export default class UserActions extends React.Component {
           />{"Dr. "}
           <span className="d-none d-md-inline-block">Mario</span>
         </DropdownToggle>
-        {/*<Collapse tag={DropdownMenu} right small open={this.state.visible}>
+        <Collapse tag={DropdownMenu} right small open={this.state.visible}>
           <DropdownItem tag={Link} to="user-profile">
             <i className="material-icons">&#xE7FD;</i> Profile
           </DropdownItem>
