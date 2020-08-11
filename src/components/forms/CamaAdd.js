@@ -26,20 +26,20 @@ const CamaAdd = ({
           <Card small className="mb-3">
             <CardBody>
               <Form className="add-new-post">
-                <FormGroup controlId="select-sala">
-                <label>Sala</label>
-                  <FormSelect as="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </FormSelect>
-              </FormGroup>
+                <FormGroup>
+                  <label>Sala</label>
+                  <FormInput
+                    value={sala}
+                    onChange={(event) => setSala(event.target.value)}
+                    size="lg"
+                    className="mb-3"
+                    placeholder="Id de Sala" />
+                </FormGroup>
               </Form>
               <Button
                 theme="primary"
                 className="mb-2 mr-1"
-                //onClick={(event) => onSubmit({'equipamiento': equipamiento})}
+                onClick={(event) => onSubmit({'idSala': sala})}
                 >
                   Agregar
                 </Button>
