@@ -69,6 +69,9 @@ class CamasList extends Component {
                     <Button
                     onClick={(event) => this.handleLlegadaSubmit({'id': cama.id})}>Informar llegada</Button>
                   }
+                  {cama.fechaUso != null &&
+                    <p className="card-text text-center text-muted">Fecha: {cama.fechaUso}</p>
+                  }
                   <Button theme="success"
                   onClick={(event) => this.handleLiberacionSubmit({'id': cama.id})}>Liberar</Button>{' '}
                 </Card>
