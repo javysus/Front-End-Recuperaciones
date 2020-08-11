@@ -39,7 +39,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2020 Vilicon Salley",
+  copyright: "Copyright © 2020 Symphon-IT",
   menuItems: [
   ]
 };
