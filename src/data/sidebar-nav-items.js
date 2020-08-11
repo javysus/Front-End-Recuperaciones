@@ -104,6 +104,11 @@ export default function() {
       title: 'Agregar Equipamiento',
       htmlBefore: '<i class="material-icons">note_add</i>',
       to: '/agregar-equipamiento'
+    },
+    {
+      title: 'Actualizar Equipamiento',
+      htmlBefore: '<i class="material-icons">note_add</i>',
+      to: '/actualizar-equipamiento'
     }
   ];
 }

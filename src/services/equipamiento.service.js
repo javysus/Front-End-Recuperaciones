@@ -12,6 +12,10 @@ function getAll() {
     return api.get(`/Equipamiento`);
 }
 
+function getById(id) {
+    return api.get(`/EquipamientoFind?id=${id}`);
+}
+
 function create(data) {
     return api.post(`/Equipamiento/Agregar`, data);
 }
@@ -22,6 +26,7 @@ function update(data) {
 const equipamientoService = {
     getBySala,
     getAll,
+    getById,
     borrarEquip,
     create,
     update

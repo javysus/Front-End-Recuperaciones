@@ -28,6 +28,7 @@ import CamaAddForm from "./views/CamaAddForm"
 import CamaAsigForm from "./views/CamaAsigForm"
 import EquipamientoForm2 from "./views/EquipamientoForm2"
 import EquipamientoList from "./views/EquipamientoList"
+import EquipamientoUpdateForm from "./views/EquipamientoUpdateForm"
 
 export default [
   {
@@ -150,5 +151,10 @@ export default [
     path: "/equipamiento",
     layout: DefaultLayout,
     component: EquipamientoList
+  },
+  {
+    path: "/actualizar-equipamiento",
+    layout: DefaultLayout,
+    component: EquipamientoUpdateForm
   }
 ];
