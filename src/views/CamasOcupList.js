@@ -11,6 +11,8 @@ import camaService from '../services/cama.service';
 
 import PageTitle from "../components/common/PageTitle";
 
+import Icon from "../images/camaocupada.png";
+
 class CamasList extends Component {
 
   constructor(props) {
@@ -35,18 +37,19 @@ class CamasList extends Component {
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Camas de Recuperación Asignadas" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Camas de Recuperación Asignadas" subtitle="" className="text-sm-left" />
         </Row>
 
         <Row>
           {camas.map((cama, index) => {
             return (
-              <Col lg="2" key={cama.id}>
+              <Col lg="3" key={cama.id}>
                 <Card small className="card-post mb-4">
                   <CardBody>
-                    <p className="card-text text-muted">Cama: {cama.id}</p>
-                    <p className="card-text text-muted">Sala: {cama.idSala}</p>
-                    <p className="card-text text-muted">Paciente: {cama.idPaciente}</p>
+                    <img fluid src={Icon} width="171"/>
+                    <p className="card-text text-center text-muted">Cama: {cama.id}</p>
+                    <p className="card-text text-center text-muted">Sala: {cama.idSala}</p>
+                    <p className="card-text text-center text-muted">Paciente: {cama.idPaciente}</p>
                   </CardBody>
                   <Button variant="primary">Informar llegada</Button>{' '}
                   <Button variant="success">Liberar</Button>{' '}

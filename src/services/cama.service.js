@@ -17,7 +17,7 @@ function create(data) {
 }
 
 function update(data) {
-    return api.put(`up/Actualizar`, data);
+    return api.put(`CamaRecup/Actualizar`, data);
 }
 
 const camaService = {

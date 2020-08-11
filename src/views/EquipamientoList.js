@@ -7,7 +7,6 @@ import {
   CardBody,
 } from "shards-react";
 import salaService from '../services/sala.service';
-import equipamientoService from '../services/equipamiento.service';
 
 import PageTitle from "../components/common/PageTitle";
 
@@ -42,17 +41,6 @@ class SalasList extends Component {
 
         <Row>
           {salas.map((sala, index) => {
-            /*const { equipos } = fetch('https://recuperaciones.herokuapp.com/Equipamiento/Sala?idsala='+ sala.id)
-            .then(response => response.json()).then(equipa => this.setState({equipa}));*/
-
-            const { equipos } = fetch('https://recuperaciones.herokuapp.com/Equipamiento/Sala?idsala='+ sala.id)
-            .then(response => response.json())/*.then(equipa => {equipa.map(equi =>
-              <div key={equipa.id}> {equipa.nombre} </div>)});
-
-            //const { equipa } = this.state.equipa;            //console.log(equip);
-            /*
-                    {this.state.equipa.map(equipa => 
-                       <div key={equipa.id}> {equipa.nombre} </div>)}*/
             return (
               <Col lg="5" key={sala.id}>
                 <Card small className="card-post mb-4">

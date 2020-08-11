@@ -10,6 +10,8 @@ import camaService from '../services/cama.service';
 
 import PageTitle from "../components/common/PageTitle";
 
+import Icon from "../images/camalibre.png";
+
 class CamasList extends Component {
 
   constructor(props) {
@@ -43,8 +45,9 @@ class CamasList extends Component {
               <Col lg="3" key={cama.id}>
                 <Card small className="card-post mb-4">
                   <CardBody>
+                    <img fluid src={Icon} width="171"/>
                     <p className="card-text text-muted text-center">Cama: {cama.id}</p>
-                    <p className="card-text text-muted text-center">Sala: {cama.idSala}</p>
+                    <p className="card-text text-muted text-center">Sala: {cama.idSala}</p>      
                   </CardBody>
                 </Card>
               </Col>
