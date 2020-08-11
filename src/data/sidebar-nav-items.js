@@ -76,9 +76,14 @@ export default function() {
       to: '/salas-recuperacion'
     },
     {
-      title: 'Camas de Recuperación Disponibles',
+      title: 'Camas Disponibles',
       htmlBefore: '<i class="material-icons">view_module</i>',
       to: '/camas-disponibles'
+    },
+    {
+      title: 'Camas No Disponibles',
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: '/camas-nodisponibles'
     },
     {
       title: 'Asignar Cama',

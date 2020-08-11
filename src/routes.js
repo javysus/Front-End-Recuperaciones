@@ -22,6 +22,7 @@ import PabellonOcpList from './views/PabellonOcpList';
 import PersonalAsgList from './views/PersonalAsgList';
 import SalasList from './views/SalasList';
 import CamasList from "./views/CamasList";
+import CamasOcupList from "./views/CamasOcupList";
 import EquipamientoForm from "./views/EquipamientoForm"
 import CamaAddForm from "./views/CamaAddForm"
 import CamaAsigForm from "./views/CamaAsigForm"
@@ -117,6 +118,11 @@ export default [
     path: "/camas-disponibles",
     layout: DefaultLayout,
     component: CamasList
+  },
+  {
+    path: "/camas-nodisponibles",
+    layout: DefaultLayout,
+    component: CamasOcupList
   },
   {
     path: "/agregar-equipamiento",
