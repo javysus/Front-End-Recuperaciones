@@ -30,6 +30,19 @@ class CamasList extends Component {
     });
   }
 
+  handleLiberacionSubmit(data) {
+    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':'null', 'disponible': 'true', 'fechaUso': 'null', 'idSala': cama.data.idSala})
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error)))
+  }
+
+  handleLlegadaSubmit(data) {
+    var today = new Date();
+    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':cama.data.idPaciente, 'disponible': 'false', 'fechaUso': today, 'idSala': cama.data.idSala})
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error)))
+  }
+
   render() {
     const { camas } = this.state;
 
@@ -51,8 +64,10 @@ class CamasList extends Component {
                     <p className="card-text text-center text-muted">Sala: {cama.idSala}</p>
                     <p className="card-text text-center text-muted">Paciente: {cama.idPaciente}</p>
                   </CardBody>
-                  <Button variant="primary">Informar llegada</Button>{' '}
-                  <Button variant="success">Liberar</Button>{' '}
+                  <Button variant="primary"
+                  onClick={(event) => this.handleLlegadaSubmit({'id': cama.id})}>Informar llegada</Button>{' '}
+                  <Button variant="success"
+                  onClick={(event) => this.handleLiberacionSubmit({'id': cama.id})}>Liberar</Button>{' '}
                 </Card>
               </Col>
             )

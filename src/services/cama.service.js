@@ -12,6 +12,10 @@ function getNoDisponibles() {
     return api.get(`/CamaRecup/NoDisponibles`);
 }
 
+function getCama(id) {
+    return api.get(`/CamaRecupFind?id=${id}`);
+}
+
 function create(data) {
     return api.post(`/CamaRecup/Agregar`, data);
 }
@@ -24,6 +28,7 @@ const camaService = {
     getBySala,
     getDisponibles,
     getNoDisponibles,
+    getCama,
     create,
     update
 };
