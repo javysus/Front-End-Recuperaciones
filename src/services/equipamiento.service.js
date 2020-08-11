@@ -16,11 +16,11 @@ function create(data) {
 function update(data) {
     return api.put(`/Equipamiento/Actualizar`,data)
 }
-const pabellonasgService = {
+const equipamientoService = {
     getBySala,
     borrarEquip,
     create,
     update
 };
 
-export default pabellonasgService;
+export default equipamientoService;

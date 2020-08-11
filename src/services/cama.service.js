@@ -1,7 +1,7 @@
 import { api } from '../helpers';
 
 function getBySala(sala,disponible) {
-    return api.get(`/CamaRecup?sala=${sala}&disponble=${disponible}`);
+    return api.get(`/CamaRecup?sala=${sala}&disponible=${disponible}`);
 }
 
 function getDisponibles() {

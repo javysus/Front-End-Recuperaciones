@@ -23,6 +23,7 @@ import PersonalAsgList from './views/PersonalAsgList';
 import SalasList from './views/SalasList';
 import CamasList from "./views/CamasList";
 import EquipamientoForm from "./views/EquipamientoForm"
+import CamaAddForm from "./views/CamaAddForm"
 
 export default [
   {
@@ -120,5 +121,10 @@ export default [
     path: "/agregar-equipamiento",
     layout: DefaultLayout,
     component: EquipamientoForm
+  },
+  {
+    path: "/agregar-cama",
+    layout: DefaultLayout,
+    component: CamaAddForm
   }
 ];

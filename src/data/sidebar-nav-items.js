@@ -79,6 +79,16 @@ export default function() {
       title: 'Camas de Recuperación Disponibles',
       htmlBefore: '<i class="material-icons">view_module</i>',
       to: '/camas-disponibles'
+    },
+    {
+      title: 'Agregar Cama de Recuperación',
+      htmlBefore: '<i class="material-icons">note_add</i>',
+      to: '/agregar-cama'
+    },
+    {
+      title: 'Agregar Equipamiento',
+      htmlBefore: '<i class="material-icons">note_add</i>',
+      to: '/agregar-equipamiento'
     }
   ];
 }
