@@ -33,7 +33,7 @@ class CamasList extends Component {
   handleLiberacionSubmit(data) {
     camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':'null', 'disponible': 'true', 'fechaUso': 'null', 'idSala': cama.data.idSala})
     .then((response) => console.log(response))
-    .catch((error) => console.log(error)))
+    .catch((error) => console.log(error)));
   }
 
   handleLlegadaSubmit(data) {
@@ -64,7 +64,7 @@ class CamasList extends Component {
                     <p className="card-text text-center text-muted">Sala: {cama.idSala}</p>
                     <p className="card-text text-center text-muted">Paciente: {cama.idPaciente}</p>
                   </CardBody>
-                  <Button theme="info"
+                  <Button
                   onClick={(event) => this.handleLlegadaSubmit({'id': cama.id})}>Informar llegada</Button>{' '}
                   <Button theme="success"
                   onClick={(event) => this.handleLiberacionSubmit({'id': cama.id})}>Liberar</Button>{' '}

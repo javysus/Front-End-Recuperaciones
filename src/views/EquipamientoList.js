@@ -5,7 +5,8 @@ import {
   Col,
   Card,
   CardBody,
-  Button
+  Button,
+  Fade
 } from "shards-react";
 import equipamientoService from '../services/equipamiento.service';
 
@@ -16,13 +17,13 @@ class EquipamientoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      equipos: [],
+      equipos: []
     };
     this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this);
   }
 
   handleDeleteSubmit(data) {
-    equipamientoService.borrarEquip(data.id).then((response) => console.log(response))
+    equipamientoService.borrarEquip(data.id).then((response) => console.log(response));
   }
 
   componentDidMount() {
@@ -42,9 +43,9 @@ class EquipamientoList extends Component {
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="4" title="Salas de Recuperación" subtitle="" className="text-sm-left" />
+          <PageTitle sm="4" title="Equipamiento en Salas" subtitle="" className="text-sm-left" />
         </Row>
-
+        
         <Row>
           {equipos.map((equip, index) => {
             return (
@@ -54,10 +55,9 @@ class EquipamientoList extends Component {
                     <p className="card-text text-center text-muted">Identificador: {equip.id}</p>
                     <p className="card-text text-center text-muted">{equip.nombre}</p>
                     <p className="card-text text-center text-muted">Sala: {equip.idSala}</p>
-
-                    <Button variant="success"
-                    onClick={(event) => this.handleDeleteSubmit({'id': equip.id})}>Eliminar</Button>{' '}
                   </CardBody>
+                  <Button theme="danger"
+                    onClick={(event) => this.handleDeleteSubmit({'id': equip.id})}>Eliminar</Button>{' '}
                 </Card>
               </Col>
             )
