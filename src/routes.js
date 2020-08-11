@@ -22,6 +22,7 @@ import PabellonOcpList from './views/PabellonOcpList';
 import PersonalAsgList from './views/PersonalAsgList';
 import SalasList from './views/SalasList';
 import CamasList from "./views/CamasList";
+import EquipamientoForm from "./views/EquipamientoForm"
 
 export default [
   {
@@ -115,4 +116,9 @@ export default [
     layout: DefaultLayout,
     component: CamasList
   },
+  {
+    path: "/agregar-equipamiento",
+    layout: DefaultLayout,
+    component: EquipamientoForm
+  }
 ];
