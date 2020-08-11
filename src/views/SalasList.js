@@ -5,13 +5,13 @@ import {
   Col,
   Card,
   CardBody,
-  Button
+  CardImg
 } from "shards-react";
 import salaService from '../services/sala.service';
 import equipamientoService from '../services/equipamiento.service';
 
 import PageTitle from "../components/common/PageTitle";
-
+import Icon from "../images/salahospital.jpg";
 class SalasList extends Component {
 
   constructor(props) {
@@ -61,9 +61,11 @@ class SalasList extends Component {
                     {this.state.equipa.map(equipa => 
                        <div key={equipa.id}> {equipa.nombre} </div>)}*/
             return (
-              <Col lg="5" key={sala.id}>
+              <Col lg="4" key={sala.id}>
                 <Card small className="card-post mb-4">
+                <CardImg fluid src={Icon} height="250"/>
                   <CardBody>
+                    
                     <p className="card-text text-muted">Sala: {sala.id}</p>
                     <p className="card-text text-muted">Camas: {sala.camas}</p>
                     <p className="card-text text-muted">Camas disponibles: {sala.disponibles}</p>

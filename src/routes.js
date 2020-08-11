@@ -11,7 +11,6 @@ import CamasOcupList from "./views/CamasOcupList";
 import EquipamientoForm from "./views/EquipamientoForm"
 import CamaAddForm from "./views/CamaAddForm"
 import CamaAsigForm from "./views/CamaAsigForm"
-import EquipamientoForm2 from "./views/EquipamientoForm2"
 import EquipamientoList from "./views/EquipamientoList"
 import EquipamientoUpdateForm from "./views/EquipamientoUpdateForm"
 
@@ -51,11 +50,6 @@ export default [
     path: "/asignar-cama",
     layout: DefaultLayout,
     component: CamaAsigForm
-  },
-  {
-    path: "/prueba",
-    layout: DefaultLayout,
-    component: EquipamientoForm2
   },
   {
     path: "/equipamiento",

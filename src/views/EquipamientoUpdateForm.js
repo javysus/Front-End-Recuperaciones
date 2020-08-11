@@ -30,7 +30,7 @@ class EquipamientoUpdateForm extends Component {
       <Container fluid className="main-content-container px-4 pb-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="5" title="Actualizar Equipamiento" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Actualizar Equipamiento" subtitle="Mover equipamiento de una sala a otra" className="text-sm-left" />
         </Row>
 
         <EquipamientoUpdate

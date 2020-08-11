@@ -40,7 +40,8 @@ class CamasList extends Component {
     var today = new Date();
     camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':cama.data.idPaciente, 'disponible': 'false', 'fechaUso': today, 'idSala': cama.data.idSala})
     .then((response) => console.log(response))
-    .catch((error) => console.log(error)))
+    .catch((error) => console.log(error)));
+    window.alert("Paciente ingresa a la sala en " + today)
   }
 
   render() {
@@ -50,7 +51,7 @@ class CamasList extends Component {
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-          <PageTitle sm="5" title="Camas de Recuperación Asignadas" subtitle="" className="text-sm-left" />
+          <PageTitle sm="5" title="Camas de Recuperación Asignadas" subtitle="Camas que han sido asignadas a un paciente" className="text-sm-left" />
         </Row>
 
         <Row>
@@ -64,8 +65,10 @@ class CamasList extends Component {
                     <p className="card-text text-center text-muted">Sala: {cama.idSala}</p>
                     <p className="card-text text-center text-muted">Paciente: {cama.idPaciente}</p>
                   </CardBody>
-                  <Button
-                  onClick={(event) => this.handleLlegadaSubmit({'id': cama.id})}>Informar llegada</Button>{' '}
+                  {cama.fechaUso == null &&
+                    <Button
+                    onClick={(event) => this.handleLlegadaSubmit({'id': cama.id})}>Informar llegada</Button>
+                  }
                   <Button theme="success"
                   onClick={(event) => this.handleLiberacionSubmit({'id': cama.id})}>Liberar</Button>{' '}
                 </Card>
