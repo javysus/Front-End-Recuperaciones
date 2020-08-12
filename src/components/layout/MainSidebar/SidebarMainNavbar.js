@@ -27,7 +27,7 @@ class SidebarMainNavbar extends React.Component {
         >
           <NavbarBrand
             className="w-100 mr-0"
-            href="https://www.usm.cl"
+            href="https://isw-hm.herokuapp.com/"
             style={{ lineHeight: "25px" }}
           >
             <div className="d-table m-auto">
