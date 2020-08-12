@@ -7,7 +7,7 @@ import {
   CardBody,
 } from "shards-react";
 import camaService from '../services/cama.service';
-import CamaAdd from '../components/forms/CamaAdd'
+import CamaAdd from '../components/forms/CamaAdd';
 import PageTitle from "../components/common/PageTitle";
 
 class CamaAddForm extends Component {
@@ -20,8 +20,8 @@ class CamaAddForm extends Component {
 
   handleCamaAddSubmit(data) {
     camaService.create(data)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then(function(response){ if(response.data){window.alert('Cama ingresada.')}else{window.alert('No se ha podido ingresar.')}})
+      .catch((error) => window.alert('Ha ocurrido un error. Intente nuevamente.'));
   }
 
   render() {

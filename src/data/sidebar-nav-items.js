@@ -11,7 +11,7 @@ export default function() {
       to: '/camas-disponibles'
     },
     {
-      title: 'Camas No Disponibles',
+      title: 'Camas Asignadas',
       htmlBefore: '<i class="material-icons">view_module</i>',
       to: '/camas-nodisponibles'
     },

@@ -23,7 +23,7 @@ class EquipamientoList extends Component {
   }
 
   handleDeleteSubmit(data) {
-    equipamientoService.borrarEquip(data.id).then((response) => console.log(response));
+    equipamientoService.borrarEquip(data.id).then((response) => window.location.reload(false));
   }
 
   componentDidMount() {
