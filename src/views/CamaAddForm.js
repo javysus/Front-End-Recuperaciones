@@ -20,8 +20,8 @@ class CamaAddForm extends Component {
 
   handleCamaAddSubmit(data) {
     camaService.create(data)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then(function(response){ if(response.data){window.alert('Cama ingresada.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
+      .catch((error) => window.alert('Ha ocurrido un error. Intente nuevamente.'));
   }
 
   render() {

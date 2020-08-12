@@ -31,17 +31,16 @@ class CamasList extends Component {
   }
 
   handleLiberacionSubmit(data) {
-    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':'null', 'disponible': 'true', 'fechaUso': 'null', 'idSala': cama.data.idSala})
-    .then((response) => console.log(response))
+    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':'null', 'disponible': 'true', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': 'null'})
+    .then(function(response){ if(response.data){window.alert('Cama '+data.id+' ha sido liberada.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
     .catch((error) => console.log(error)));
   }
 
   handleLlegadaSubmit(data) {
     var today = new Date();
-    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':cama.data.idPaciente, 'disponible': 'false', 'fechaUso': today, 'idSala': cama.data.idSala})
-    .then((response) => console.log(response))
+    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':cama.data.idPaciente, 'disponible': 'false', 'fechaUso': today, 'idSala': cama.data.idSala, 'idPersonalR': cama.data.idPersonalR})
+    .then(function(response){ if(response.data){window.alert("Paciente ha ingresado en " + today)}else{window.alert('No se ha podido actualizar.')} window.location.reload(false)})
     .catch((error) => console.log(error)));
-    window.alert("Paciente ingresa a la sala en " + today)
   }
 
   render() {

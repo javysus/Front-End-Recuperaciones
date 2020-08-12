@@ -18,6 +18,7 @@ const CamaAsig = ({
   }) => {
     const [id, setId] = useState('');
     const [paciente, setPaciente] = useState('');
+    const [personal, setPersonal] = useState('');
 
     return(
       <Row>
@@ -44,11 +45,20 @@ const CamaAsig = ({
                     className="mb-3"
                     placeholder="Ingresar ID del paciente" />
                 </FormGroup>
+                <FormGroup>
+                  <label>Personal</label>
+                  <FormInput
+                    value={personal}
+                    onChange={(event) => setPersonal(event.target.value)}
+                    size="lg"
+                    className="mb-3"
+                    placeholder="Ingresar ID del personal que asigna" />
+                </FormGroup>
               </Form>
               <Button
                 theme="primary"
                 className="mb-2 mr-1"
-                onClick={(event) => onSubmit({'id': id,'idPaciente': paciente})}
+                onClick={(event) => onSubmit({'id': id,'idPaciente': paciente, 'idPersonal': personal})}
                 // onClick={onSubmit}
                 >
                   Agregar

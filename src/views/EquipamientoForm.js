@@ -20,7 +20,7 @@ class EquipamientoForm extends Component {
 
   handleEquipamientoSubmit(data) {
     equipamientoService.create(data)
-      .then((response) => console.log(response))
+      .then(function(response){ if(response.data){window.alert('Ingresado.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
       .catch((error) => console.log(error));
   }
 

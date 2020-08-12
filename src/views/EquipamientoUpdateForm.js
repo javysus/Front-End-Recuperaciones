@@ -20,7 +20,7 @@ class EquipamientoUpdateForm extends Component {
 
   handleEquipamientoSubmit(data) {
     equipamientoService.getById(data.id).then((equipo) => equipamientoService.update({'id': data.id, 'idSala': data.idSala, 'nombre': equipo.data.nombre})
-      .then((response) => console.log(response))
+      .then(function(response){ if(response.data){window.alert('Actualizado correctamente.')}else{window.alert('No se ha podido actualizar.')} window.location.reload(false)})
       .catch((error) => console.log(error)));
   }
 
