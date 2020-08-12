@@ -4,6 +4,10 @@ function getAll() {
     return api.get(`/SalasRecup`);
 }
 
+function getSala(id) {
+    return api.get(`/SalasRecupFind?id=${id}`);
+}
+
 function getDisponibles() {
     return api.get(`/SalasRecup/Disponibles`);
 }
@@ -15,6 +19,7 @@ function update(data) {
 
 const salaService = {
     getAll,
+    getSala,
     getDisponibles,
     update
 };

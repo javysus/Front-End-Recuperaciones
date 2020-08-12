@@ -7,6 +7,7 @@ import {
   CardBody,
 } from "shards-react";
 import camaService from '../services/cama.service';
+import salaService from '../services/sala.service';
 import CamaAdd from '../components/forms/CamaAdd';
 import PageTitle from "../components/common/PageTitle";
 
@@ -20,7 +21,14 @@ class CamaAddForm extends Component {
 
   handleCamaAddSubmit(data) {
     camaService.create(data)
-      .then(function(response){ if(response.data){window.alert('Cama ingresada.')}else{window.alert('No se ha podido ingresar.')}})
+      .then(function(response){ if(response.data){
+        salaService.getSala(data.idSala)
+          .then((sala) => salaService.update({'id':data.idSala, 'camas':sala.data.camas + 1, 'disponibles': sala.data.disponibles + 1}))
+          .then(function(response){
+            console.log(response);
+            window.alert('Cama ingresada.');
+          })
+        }else{window.alert('No se ha podido ingresar.')}})
       .catch((error) => window.alert('Ha ocurrido un error. Intente nuevamente.'));
   }
 

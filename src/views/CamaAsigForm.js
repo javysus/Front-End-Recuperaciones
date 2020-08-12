@@ -7,6 +7,7 @@ import {
 import PageTitle from "../components/common/PageTitle";
 import CamaAsig from "../components/forms/CamaAsig";
 import camaService from '../services/cama.service';
+import salaService from '../services/sala.service';
 
 class CamaAsigForm extends Component {
 
@@ -23,7 +24,10 @@ class CamaAsigForm extends Component {
         console.log(pacienteRes);
         if(pacienteRes.res.estado == 4){
           camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':data.idPaciente, 'disponible': 'false', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': data.idPersonal})
-          .then(function(response){ if(response.data){window.alert('Paciente asignado correctamente.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
+          .then(function(response){ if(response.data){
+            salaService.getSala(cama.data.idSala)
+          .then((sala) => salaService.update({'id':cama.data.idSala, 'camas':sala.data.camas, 'disponibles': sala.data.disponibles - 1}));
+            window.alert('Paciente asignado correctamente.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
           .catch((error) => console.log(error)))
         }
         else{

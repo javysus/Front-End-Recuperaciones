@@ -8,6 +8,7 @@ import {
   Button
 } from "shards-react";
 import camaService from '../services/cama.service';
+import salaService from '../services/sala.service';
 
 import PageTitle from "../components/common/PageTitle";
 
@@ -33,8 +34,16 @@ class CamasList extends Component {
   handleLiberacionSubmit(data) {
     camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':'null', 'disponible': 'true', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': 'null'})
     .then(function(response){ if(response.data){
-      fetch('https://ms-paciente.herokuapp.com/paciente/actualizarEstado/'+cama.data.idPaciente+'?estado=0', {method:'PUT'});
-      window.alert('Cama '+data.id+' ha sido liberada.');}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
+      //fetch('https://ms-paciente.herokuapp.com/paciente/actualizarEstado/'+cama.data.idPaciente+'?estado=0', {method:'PUT'});
+      salaService.getSala(cama.data.idSala)
+          .then((sala) => salaService.update({'id':cama.data.idSala, 'camas':sala.data.camas, 'disponibles': sala.data.disponibles + 1}))
+          .then(function(response){
+            console.log(response);
+            fetch('https://ms-paciente.herokuapp.com/paciente/actualizarEstado/'+cama.data.idPaciente+'?estado=0', {method:'PUT'}).then(function(response){
+              window.alert('Cama '+data.id+' ha sido liberada.');
+              window.location.reload(false)
+            })
+            /*window.alert('Cama '+data.id+' ha sido liberada.')*/})} else{window.alert('No se ha podido ingresar.');  window.location.reload(false)}})
     .catch((error) => console.log(error)));
   }
 
