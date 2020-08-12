@@ -32,7 +32,9 @@ class CamasList extends Component {
 
   handleLiberacionSubmit(data) {
     camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':'null', 'disponible': 'true', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': 'null'})
-    .then(function(response){ if(response.data){window.alert('Cama '+data.id+' ha sido liberada.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
+    .then(function(response){ if(response.data){
+      fetch('https://ms-paciente.herokuapp.com/paciente/actualizarEstado/'+cama.data.idPaciente+'?estado=0', {method:'PUT'});
+      window.alert('Cama '+data.id+' ha sido liberada.');}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
     .catch((error) => console.log(error)));
   }
 

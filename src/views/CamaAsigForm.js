@@ -24,6 +24,10 @@ class CamaAsigForm extends Component {
       .then((response) => console.log(response))
       .catch((error) => console.log(error));*/
     //camaService.getCama(data.id).then((cama) => console.log(cama,cama.data.idSala));
+    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':data.idPaciente, 'disponible': 'false', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': data.idPersonal})
+    .then(function(response){ if(response.data){
+      window.alert('Paciente asignado correctamente.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
+    .catch((error) => console.log(error)))
   }
 
   render() {
