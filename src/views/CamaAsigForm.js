@@ -17,18 +17,22 @@ class CamaAsigForm extends Component {
   }
 
   handleAsignacionSubmit(data) {
-    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':data.idPaciente, 'disponible': 'false', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': data.idPersonal})
-    .then(function(response){ if(response.data){window.alert('Paciente asignado correctamente.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
-    .catch((error) => console.log(error)))
-    /*camaService.update({'id':data.id,'idPaciente':data.idPaciente, 'disponible': 'false', 'fechaUso': 'null', 'idSala': 1})
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));*/
-    //camaService.getCama(data.id).then((cama) => console.log(cama,cama.data.idSala));
-    camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':data.idPaciente, 'disponible': 'false', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': data.idPersonal})
-    .then(function(response){ if(response.data){
-      window.alert('Paciente asignado correctamente.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
-    .catch((error) => console.log(error)))
+
+    fetch('https://ms-paciente.herokuapp.com/paciente/obtenerId/'+data.idPaciente).then((res)=>res.json()).then(
+        function(pacienteRes){
+        console.log(pacienteRes);
+        if(pacienteRes.res.estado == 4){
+          camaService.getCama(data.id).then((cama) => camaService.update({'id':data.id,'idPaciente':data.idPaciente, 'disponible': 'false', 'fechaUso': 'null', 'idSala': cama.data.idSala, 'idPersonalR': data.idPersonal})
+          .then(function(response){ if(response.data){window.alert('Paciente asignado correctamente.')}else{window.alert('No se ha podido ingresar.')} window.location.reload(false)})
+          .catch((error) => console.log(error)))
+        }
+        else{
+          window.alert('Paciente no se encuentra en estado de recuperación.')
+        }
+      })
   }
+
+  
 
   render() {
 
